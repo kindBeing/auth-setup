@@ -1,10 +1,8 @@
 const low = require('lowdb');
 const Memory = require('lowdb/adapters/Memory');
-
 const db = low(new Memory());
 
-const assert = require('assert');
-
+// Company auth store
 db.defaults({
   users: [
     {
@@ -32,7 +30,7 @@ class Account {
     return {
       accountId: id,
       // and this claims() method would actually query to retrieve the account claims
-      async claims() {
+      claims: () => {
         return {
           sub: id,
           email: account.email,

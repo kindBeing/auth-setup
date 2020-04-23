@@ -6,7 +6,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Provider = require('oidc-provider');
 
-
 // simple account model for this application, user list is defined like so
 const Account = require('./account');
 
@@ -52,7 +51,7 @@ const oidc = new Provider('http://localhost:4000', {
   },
 });
 
-oidc.proxy = true;
+// oidc.proxy = true;
 
 // let's work with express here, below is just the interaction definition
 const expressApp = express();
