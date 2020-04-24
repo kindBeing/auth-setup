@@ -1,0 +1,27 @@
+const {Issuer} = require('openid-client');
+
+const client_id = 'foo'
+const client_secret = 'bar'
+const redirect_uri = 'http://localhost:3000/callback';
+const authUrl = 'http://localhost:4000';
+
+let client;
+
+initiateAuthorization = async () => {
+    const authProvider = await Issuer.discover(authUrl);
+    client = new authProvider.Client({
+        client_id: client_id,
+        client_secret: client_secret,
+        redirect_uris: [redirect_uri]
+    })
+}
+
+getClient = () => {
+    return client
+}
+
+module.exports = {
+    initiateAuthorization,
+    getClient,
+    redirect_uri
+}

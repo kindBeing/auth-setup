@@ -10,7 +10,7 @@ const configuration = {
         {
             client_id: 'foo',
             client_secret: 'bar',
-            redirect_uris: ['http://localhost:3000/users'],
+            redirect_uris: ['http://localhost:3000/callback'],
         }
     ],
     findAccount: Account.findAccount,
