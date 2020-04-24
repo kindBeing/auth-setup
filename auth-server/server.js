@@ -4,8 +4,15 @@ const helper = require('./helpers')
 const path = require('path');
 const bodyParser = require('body-parser');
 const Account = require('./account')
+const SequelizeAdapter = require('./sequelize-adapter')
+
+let adapter = new SequelizeAdapter();
+(async () => {
+    await SequelizeAdapter.connect()
+})()
 
 const configuration = {
+    adapter: SequelizeAdapter, 
     clients: [
         {
             client_id: 'foo',
